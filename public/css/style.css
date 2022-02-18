@@ -83,7 +83,7 @@ body{
 
 footer{
     background-color: #75F991;
-    margin: 30px 16px;
+    margin: 80px 16px;
     padding: 16px;
     border-radius: 8px;
     box-shadow: 3px 3px 4px #75F991;
@@ -311,6 +311,73 @@ ul.details-content li::after{
     color:#DC3545;
     margin-top: 5px;
 }
+
+.thanks{
+    color:white;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 1.35rem;
+}
+
+.divider-line{
+    color:white;
+}
+
+.strategy{
+    margin-top: 10px;
+}
+
+.last-greetings{
+    line-height: 5px;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 50px;
+}
+
+.strategy-title{
+    font-size: 1.15rem;
+    color: white;
+    font-weight: bold;
+}
+
+.dream-come{
+    color:white;
+    font-size: 0.65rem;
+    font-weight: bolder;
+}
+
+.form-end-button{
+    text-align: right;
+    margin-top: -15px;
+}
+
+.form-end-button button.btn{
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.form-end-button button.btn-green{
+    background-color: #75F991;
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+}
+
+.form-end-button button.btn-green:hover{
+    background-color: #2E633A;
+    width: 60px;
+    height: 60px;
+    color: white;
+    transition: .3s;
+    border-radius: 8px;
+}
+
 
 
 

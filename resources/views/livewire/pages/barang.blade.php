@@ -68,8 +68,8 @@
             <li class="step-3 {{ $step_4 ? 'hide' : '' }}">
                 <label for="count-c">Asumsi Inflasi barang adalah</label>
                 <div class="custom-group-input">
-                    <input type="text" wire:model="inflation_year" class="custom-group-input year count" id="count-c">
-                    <b>%/Tahun</b>
+                    <input type="text" wire:model="inflation_year" class="custom-group-input year count" id="count-d">
+                    <b>% / Tahun</b>
                 </div>
             </li>
             <li class="step-4 {{ $step_4 ? 'hide' : '' }}">
@@ -79,6 +79,53 @@
                 </div>
             </li>
         </ul>
+        <b class="form-end {{ $step_4 ? 'hide' : '' }} thanks">Thank You!!</b>
+        <hr class="divider-line divider-title {{ $step_4 ? 'hide' : '' }}">
+    </section>
+    <section class="details form-end {{ $step_4 ? 'hide' : '' }}">
+        <div class="details-title">Next, ayo atur strategi investasi kamu!</div>
+        <ul class="details-content">
+            <li>
+                <label for="count-a">Uang yang kamu miliki saat ini untuk beli barang sebesar</label>
+                <div class="custom-group-input">
+                    <b class="rupiah">Rp</b>
+                    <input type="text" wire:model="money_input" class="custom-group-input money_rupiah price count">
+                </div>
+            </li>
+            <li class="{{ $step_5 ? 'hide' : '' }}">
+                <label for="count-a">Target investasimu tiap bulan</label>
+                <div class="custom-group-input">
+                    <b class="rupiah">Rp</b>
+                    <input type="text" wire:model="invest_input" class="custom-group-input invest_target price count">
+                </div>
+            </li>
+            <li class="{{ $step_6 ? 'hide' : '' }}">
+                <label for="count-a">Kamu akan investasi di produk yang returnnya</label>
+                <div class="custom-group-input">
+                    <input type="text" wire:model="invest_return" class="custom-group-input year count" id="count-d">
+                    <b>% / Tahun</b>
+                </div>
+            </li>
+            <li class="step-4 {{ $step_7 ? 'hide' : '' }}">
+                <label for="count-d">Kamu akan rutin berinvestasi selama</label>
+                <div class="group-rupiah">
+                    <b class="rupiah">{{ $month }} Bulan</b>
+                </div>
+            </li>
+        </ul>
+        <div class="last-greetings form-end {{ $step_7 ? 'hide' : '' }}">
+            <div class="text-greetings">
+                <p class="dream-come">Yeahh, mimpimu sudah jauh lebih nyata</p>
+                <p class="strategy-title">Ayo lihat hasil Strategi Kamu</p>
+            </div>
+
+            <div class="form-end-button">
+                <button class="btn btn-green btn-icon">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
+        </div>
     </section>
 </div>
 
@@ -110,6 +157,19 @@
                 $('.price_rupiah').val(formatRupiah(this.value)); 
                 Livewire.emit('price_show',number);
             })
+
+            $('.money_rupiah').on('keyup',function(){
+                let number = Number(formatRupiah(this.value).replace(/[^0-9.-]+/g,""));
+                $('.money_rupiah').val(formatRupiah(this.value)); 
+                Livewire.emit('money_show',number);
+            })
+
+            $('.invest_target').on('keyup',function(){
+                let number = Number(formatRupiah(this.value).replace(/[^0-9.-]+/g,""));
+                $('.invest_target').val(formatRupiah(this.value)); 
+                Livewire.emit('invest_show',number);
+            })
+
             function formatRupiah(angka, prefix){
                 var number_string = angka.replace(/[^,\d]/g, '').toString(),
                 split   		= number_string.split(','),
